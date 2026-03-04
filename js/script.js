@@ -37,7 +37,7 @@ function animarPagina() {
     scrollTrigger: {
       trigger: ".certificados_grid",
       start: "30% 90%",
-      end: "80% 90%",
+      end: "20% 50%",
       scrub: true,
 	  
 	  
@@ -60,13 +60,13 @@ function animarPagina() {
   });
 
 
-   gsap.from(".conteudo_about", {
+   gsap.from(".conteudo_about_text", {
     y: 120,
 	opacity: 0,
     duration: 2,
 	filter: "blur(10px)",
 	scrollTrigger: {
-	  trigger: ".conteudo_about",
+	  trigger: ".conteudo_about_text",
 	  start: "top 80%",
 	  end: "20% 50%",
 	  scrub: true,

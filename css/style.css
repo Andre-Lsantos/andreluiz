@@ -25,7 +25,7 @@ body {
     width: 100%;
     z-index: 1200;
     background: rgba(0, 0, 0, 0.603);
-    border-bottom: 1px solid #eaeaea5a;
+    border-bottom: 1px solid #eaeaea2d;
     transition: none;
 
 }
@@ -36,8 +36,8 @@ body {
 }
 
 .header.is-solid {
-background: #1a092b;
-background: linear-gradient(90deg, rgba(26, 9, 43, 0.69) 5%, rgba(1, 7, 13, 0.77) 100%);
+    background: #1a092b;
+    background: linear-gradient(90deg, rgba(26, 15, 38, 0.69) 5%, rgba(14, 15, 16, 0.77) 100%);
     border-bottom-color: #eaeaea5a;
 }
 
@@ -96,7 +96,8 @@ mark {
 }
 
 .header nav ul li:hover {
-    color: #1fffcba6;
+    color: #a9a9a98e;
+    transition: color 0.3s ease-in-out;
 }
 
 .header nav a {
@@ -186,9 +187,9 @@ mark {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-content: center;
     align-items: center;
-    gap: clamp(1rem, 4vw, 3rem);
+    /* gap: clamp(1rem, 4vw, 3rem); */
     min-height: 100vh;
-    padding: 2rem;
+    padding: 1.5rem;
 
 
 
@@ -207,13 +208,9 @@ mark {
         line-height: 1.6;
     }
 
-    p {
-
-        text-align: justify;
-        line-height: 1.1;
-        font-size: 1.7rem;
-        /* font-size: clamp(1rem, 1.4vw, 1.8rem); */
-    }
+    
+    
+   
 }
 
 .card_certificados {
@@ -295,10 +292,10 @@ mark {
     padding: 2rem 1rem;
 }
 
-.btn{
+.btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color:  #7C3AED;
+    background-color: #7C3AED;
     color: white;
     border: none;
     border-radius: 12px;
@@ -312,7 +309,7 @@ mark {
     background-color: #425881;
 }
 
-.btn_wrap{
+.btn_wrap {
     display: flex;
     justify-content: end;
 }
@@ -346,7 +343,7 @@ mark {
     height: 160px;
     object-fit: cover;
     display: block;
-    
+
 }
 
 .projeto_conteudo {
@@ -551,13 +548,26 @@ li {
     list-style: none;
 }
 
-
-
-.conteudo_about_text{
-   
-    letter-spacing: 1.7px;
-    
+/* PERFIL  */
+.profile-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #e7c8c8;
+    margin-bottom: 25px;
 }
+
+
+
+
+.profile-name {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #f3f3f3;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
 
 /* PRELOADER */
 #preloader {
@@ -598,17 +608,21 @@ li {
         display: inline-flex;
     }
 
+    
+
     .header nav {
+       
         position: absolute;
-        top: calc(100% + 8px);
-        left: 188px;
-        right: 16px;
-        background-color: rgba(0, 0, 0, 0.96);
-        border: 1px solid #eaeaea5a;
-        border-radius: 5px;
-        padding: 12px 1.2rem;
+        top: 6rem;
+        width: 100vw;
+        left: 0;
+        background-color: #000000;
+        border: 1px solid #d0cdcd3c;
+        border-radius: 8px;
+        padding: 0.7rem;
+        padding-right: 1.8rem;
         opacity: 0;
-        
+
         /* visibility: hidden; */
         pointer-events: none;
         transform: translateY(-8px);
@@ -616,11 +630,12 @@ li {
     }
 
     #menus li a:hover {
-    background-color: #30463067;
-}
+        background-color: #30463067;
+    }
+
     .header.menu-open nav {
         opacity: 1;
-        
+
         visibility: visible;
         pointer-events: auto;
         transform: translateY(0);
@@ -629,13 +644,13 @@ li {
     .header nav ul {
         flex-direction: column;
         align-items: stretch;
-        
+
         gap: 10px;
     }
 
     .header nav li {
         text-align: end;
-        
+
     }
 
     .header nav a {
@@ -676,19 +691,23 @@ li {
         text-align: center;
     }
 
-    .projeto_cards{
+    .projeto_cards {
         grid-template-columns: 1fr;
     }
 
-     .projeto_conteudo p {
+    .projeto_conteudo p {
         text-align: center;
     }
 
-    .btn_wrap{
-        justify-content: start;
+    .btn_wrap {
+        align-items: center;
+        justify-content: center;
+        margin: 1rem;
+    }
+
+    .profile-name{
+        text-align: center;
+        margin: 2rem;
     }
 
 }
-
-
-@media (min-width: 768px) {}
