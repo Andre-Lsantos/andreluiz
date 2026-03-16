@@ -1,0 +1,123 @@
+@media (max-width: 900px) {
+    .header .wrapper {
+        justify-content: flex-end;
+        min-height: 56px;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+    }
+
+
+
+    .header nav {
+
+        position: absolute;
+        top: 6rem;
+        width: 100vw;
+        left: 0;
+        background-color: #000000;
+        border: 1px solid #d0cdcd3c;
+        border-radius: 8px;
+        padding: 0.7rem;
+        padding-right: 1.8rem;
+        opacity: 0;
+
+        /* visibility: hidden; */
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    }
+
+    #menus li a:hover {
+        background-color: #30463067;
+    }
+
+    .header.menu-open nav {
+        opacity: 1;
+
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .header nav ul {
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 10px;
+    }
+
+    .header nav li {
+        text-align: end;
+
+    }
+
+    .header nav a {
+        display: block;
+        padding: 8px 4px;
+        white-space: nowrap;
+    }
+
+    .header.menu-open .nav-toggle span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .header.menu-open .nav-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .header.menu-open .nav-toggle span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .conteudo_sobre img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .container {
+
+        flex-direction: column;
+    }
+
+    .conteudo p {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .infor {
+        align-items: center;
+        text-align: center;
+    }
+
+    .card_certificados .certificados_grid {
+        grid-template-columns: 1fr;
+        width: 50%;
+    }
+
+    .projetos_car .projeto_cards {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+    }
+
+    .projeto_conteudo p {
+        text-align: center;
+    }
+
+    .btn_wrap .btn {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .profile-name {
+        text-align: center;
+        margin: 2rem;
+    }
+
+
+
+
+
+}
+

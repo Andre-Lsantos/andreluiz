@@ -60,6 +60,17 @@ function animarPagina() {
   });
 
 
+  ScrollSmoother.create({
+    smooth: 1.7,              // quanto mais alto mais suave
+    //smoothTouch: 0.1,        // suavidade no toque para mobile podendo ter bug para celular.
+
+    effects: true             // ativar efeitos de data-speed e data-lag
+
+
+
+});
+
+
    gsap.from(".conteudo_about_text", {
     y: 120,
 	opacity: 0,
@@ -122,6 +133,7 @@ function animarPagina() {
 		}
 	});
 
+	
 
 
 
@@ -208,5 +220,39 @@ tl.to("#preloader path", {
 	duration: 0.3,
 	strokeDashoffset: 0,
 });
+
+
+
+
+
+
+
+gsap.set(".split", { opacity: 1 });
+
+document.fonts.ready.then(() => {
+  const texts = gsap.utils.toArray(".conteudo_about_text .split");
+
+  texts.forEach((text) => {
+    SplitText.create(text, {
+      type: "words,lines",
+      mask: "lines",
+      linesClass: "line",
+      autoSplit: true,
+      onSplit: (instance) => {
+        return gsap.from(instance.lines, {
+          yPercent: 120,
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: text,
+            scrub: true,
+            start: "top 80%",
+            end: "bottom 50%"
+          }
+        });
+      }
+    });
+  });
+});
+
 
 
