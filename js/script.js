@@ -20,8 +20,8 @@ function animarPagina() {
 
 		gsap.from(split.chars, {
 			y: 40,
-			opacity: 0,
-			duration: 0.3,
+			opacity: 2,
+			duration: 1.1,
 			stagger: 0.03,
 			scrollTrigger: {
 				trigger: textoUnicoSplit,
@@ -29,85 +29,70 @@ function animarPagina() {
 		});
 	});
 
-  // ANIMACOES CARDS
-  gsap.from(".certificados_grid", {
-    opacity: 0,
-    filter: "blur(10px)",
-    stagger: 0.3,
-    scrollTrigger: {
-      trigger: ".certificados_grid",
-      start: "30% 90%",
-      end: "20% 50%",
-      scrub: true,
-	  
-	  
-    },
-  });
+	// ANIMACOES CARDS
+	gsap.from(".certificados_grid", {
+		opacity: 0,
+		filter: "blur(5px)",
+		stagger: 0.3,
+		scrollTrigger: {
+			trigger: ".certificados_grid",
+			start: "30% 90%",
+			end: "10% 20%",
+			scrub: true,
 
 
- gsap.from(".conteudo_card img", {
-    x: -500,
-	opacity: 0,
-    duration: 3,
-	filter: "blur(10px)",
-	scrollTrigger: {
-	  trigger: ".conteudo_card img",
-	  start: "top 80%",
-	  end: "20% 50%",
-	  scrub: true,
-	  
-	}
-  });
+		},
+	});
 
 
-  ScrollSmoother.create({
-    smooth: 1.7,              // quanto mais alto mais suave
-    //smoothTouch: 0.1,        // suavidade no toque para mobile podendo ter bug para celular.
+	gsap.from(".conteudo_card img", {
+		x: -500,
+		opacity: 0,
+		duration: 3,
+		filter: "blur(9px)",
+		scrollTrigger: {
+			trigger: ".conteudo_card img",
+			start: "top 80%",
+			end: "20% 50%",
+			scrub: true,
 
-    effects: true             // ativar efeitos de data-speed e data-lag
+		}
+	});
+
+
+	ScrollSmoother.create({
+		smooth: 1.4,              // quanto mais alto mais suave
+		//smoothTouch: 0.1,        // suavidade no toque para mobile podendo ter bug para celular.
+
+		effects: true             // ativar efeitos de data-speed e data-lag
 
 
 
-});
+	});
 
 
-   gsap.from(".conteudo_about_text", {
-    y: 120,
-	opacity: 0,
-    duration: 2,
-	filter: "blur(10px)",
-	scrollTrigger: {
-	  trigger: ".conteudo_about_text",
-	  start: "top 80%",
-	  end: "20% 50%",
-	  scrub: true,
-	  
-	}
-  });
+	gsap.from(".conteudo_about_text", {
+		y: 120,
+		opacity: 0,
+		duration: 2,
+		filter: "blur(9px)",
+		scrollTrigger: {
+			trigger: ".conteudo_about_text",
+			start: "top 80%",
+			end: "20% 50%",
+			scrub: true,
+
+		}
+	});
 
 
 
 
 	// ...existing code...
 	document.addEventListener("DOMContentLoaded", () => {
-		const links = document.querySelectorAll('.header nav a[href^="#"]');
-		const sections = [...links]
-			.map(link => document.querySelector(link.getAttribute("href")))
-			.filter(Boolean);
-		const markHighlight = document.querySelector('.text-highlight');
 
-		function setActiveOnScroll() {
-			const pos = window.scrollY + window.innerHeight * 0.35;
-			let currentId = "";
 
-			sections.forEach(sec => {
-				if (pos >= sec.offsetTop) currentId = sec.id;
-			});
 
-			links.forEach(link => {
-				link.classList.toggle("ativo", link.getAttribute("href") === `#${currentId}`);
-			});
-		}
 
 
 		setActiveOnScroll();
@@ -133,7 +118,7 @@ function animarPagina() {
 		}
 	});
 
-	
+
 
 
 
@@ -144,57 +129,24 @@ animarPagina();
 
 
 // Header 
-const header = document.querySelector(".header");
+
 
 function syncHeaderAppearance() {
-	if (!header) return;
 
-	const shouldBeSolid = window.scrollY > 10;
-	header.classList.toggle("is-transparent", !shouldBeSolid);
-	header.classList.toggle("is-solid", shouldBeSolid);
-}
 
-if (header) {
-	window.addEventListener("scroll", syncHeaderAppearance, { passive: true });
+
 }
 
 
-// Menu hamburger 
-const navToggle = document.querySelector(".nav-toggle");
-const navMenu = document.querySelector("#menu-principal");
-const navLinks = document.querySelectorAll("#menu-principal a");
 
-function closeMobileMenu() {
-	if (!header || !navToggle) return;
-	header.classList.remove("menu-open");
-	navToggle.setAttribute("aria-expanded", "false");
-	navToggle.setAttribute("aria-label", "Abrir menu");
-}
 
-function toggleMobileMenu() {
-	if (!header || !navToggle) return;
-	const isOpen = header.classList.toggle("menu-open");
-	navToggle.setAttribute("aria-expanded", String(isOpen));
-	navToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
-}
 
-if (navToggle && navMenu && header) {
-	navToggle.addEventListener("click", toggleMobileMenu);
 
-	navLinks.forEach((link) => {
-		link.addEventListener("click", () => {
-			if (window.innerWidth <= 900) {
-				closeMobileMenu();
-			}
-		});
-	});
 
-	window.addEventListener("resize", () => {
-		if (window.innerWidth > 900) {
-			closeMobileMenu();
-		}
-	});
-}
+
+
+
+
 
 
 
@@ -230,28 +182,28 @@ tl.to("#preloader path", {
 gsap.set(".split", { opacity: 1 });
 
 document.fonts.ready.then(() => {
-  const texts = gsap.utils.toArray(".conteudo_about_text .split");
+	const texts = gsap.utils.toArray(".conteudo_about_text .split");
 
-  texts.forEach((text) => {
-    SplitText.create(text, {
-      type: "words,lines",
-      mask: "lines",
-      linesClass: "line",
-      autoSplit: true,
-      onSplit: (instance) => {
-        return gsap.from(instance.lines, {
-          yPercent: 120,
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: text,
-            scrub: true,
-            start: "top 80%",
-            end: "bottom 50%"
-          }
-        });
-      }
-    });
-  });
+	texts.forEach((text) => {
+		SplitText.create(text, {
+			type: "words,lines",
+			mask: "lines",
+			linesClass: "line",
+			autoSplit: true,
+			onSplit: (instance) => {
+				return gsap.from(instance.lines, {
+					yPercent: 120,
+					stagger: 0.1,
+					scrollTrigger: {
+						trigger: text,
+						scrub: true,
+						start: "top 80%",
+						end: "bottom 50%"
+					}
+				});
+			}
+		});
+	});
 });
 
 
